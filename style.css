@@ -12,6 +12,8 @@ html,body{
 :root{
     /*Background colors*/
     --bg-primary-colour: #0c0c0c;
+    --bg-fill-color: #fdfdfc;
+
 
 
 /* Text colors*/
@@ -83,4 +85,8 @@ section .infos{
    /* width: 80px;
     height: 80px; */
     border: 1px solid var(--border-primry-color);
+}
+
+.fill {
+    background-color: var(--bg-fill-color);
 }
