@@ -1,6 +1,7 @@
 const board = document.querySelector(".board");
-const blockHeight = 80;
-const blockWidth = 80;
+console.log();
+const blockHeight = 50;
+const blockWidth = 50;
 
 const cols = Math.floor(board.clientWidth / blockWidth);
 const rows = Math.floor(board.clientHeight / blockHeight);
@@ -9,17 +10,18 @@ const blocks = [];
 const snake = [
   {
     x: 1,
-    y: 3,
+    y: 3
   },
   {
     x: 1,
-    y: 4,
+    y: 4
   },
   {
     x: 1,
-    y: 5,
+    y: 5
   },
 ];
+let direction = 'right'
 
 //for (let i = 0; i < rows * cols; i++) {
 //const block = document.createElement("div");
@@ -39,6 +41,6 @@ for (let row = 0; row < rows; row++) {
 
 function render() {
   snake.forEach((segment) => {
-    
+    console.log(blocks[`${segment.x}-${segment.y}`].classList.add("fill"))
   });
 }
