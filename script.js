@@ -21,7 +21,7 @@ const snake = [
     y: 5
   },
 ];
-let direction = 'right'
+let direction = 'left'
 
 //for (let i = 0; i < rows * cols; i++) {
 //const block = document.createElement("div");
@@ -44,3 +44,22 @@ function render() {
     console.log(blocks[`${segment.x}-${segment.y}`].classList.add("fill"))
   });
 }
+
+setInterval(() => {
+  
+  let head = null
+
+  if (direction === "left") {
+    head = {x: snake[0].x, y: snake[ 0 ].y - 1}
+  }
+
+  snake.forEach(segment => {
+    blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
+  })
+  
+
+  snake.unshift(head)
+  snake.pop()
+
+  render()
+}, 400);
