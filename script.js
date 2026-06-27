@@ -10,18 +10,18 @@ const blocks = [];
 const snake = [
   {
     x: 1,
-    y: 3
+    y: 3,
   },
   {
     x: 1,
-    y: 4
+    y: 4,
   },
   {
     x: 1,
-    y: 5
+    y: 5,
   },
 ];
-let direction = 'left'
+let direction = "left";
 
 //for (let i = 0; i < rows * cols; i++) {
 //const block = document.createElement("div");
@@ -41,25 +41,33 @@ for (let row = 0; row < rows; row++) {
 
 function render() {
   snake.forEach((segment) => {
-    console.log(blocks[`${segment.x}-${segment.y}`].classList.add("fill"))
+    console.log(blocks[`${segment.x}-${segment.y}`].classList.add("fill"));
   });
 }
 
 setInterval(() => {
-  
-  let head = null
+  let head = null;
 
   if (direction === "left") {
-    head = {x: snake[0].x, y: snake[ 0 ].y - 1}
+    head = { x: snake[ 0 ].x, y: snake[ 0 ].y - 1 };
+  } else if (direction === "right") {
+    head = { x: snake[ 0 ].x, y: snake[ 0 ].y + 1 };
+  } else if (direction === "down") {
+    head = { x: snake[ 0 ].x + 1, y: snake[ 0 ].y };
+  } else if (direction === "up") {
+    head = { x: snake[ 0 ].x - 1, y: snake[ 0 ].y };
   }
 
-  snake.forEach(segment => {
-    blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
-  })
-  
+  snake.forEach((segment) => {
+    blocks[`${segment.x}-${segment.y}`].classList.remove("fill");
+  });
 
-  snake.unshift(head)
-  snake.pop()
+  snake.unshift(head);
+  snake.pop();
 
-  render()
+  render();
 }, 400);
+
+addEventListener("keydown",(event)=>{
+  console.log(event.key)
+})
